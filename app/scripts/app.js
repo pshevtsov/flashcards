@@ -18,8 +18,8 @@ var app = angular.module('flashcardsApp', [
 ]);
 app.config(['localStorageServiceProvider', function (localStorageServiceProvider) {
   localStorageServiceProvider.setPrefix(app.name);
-}])
-.config(function ($routeProvider) {
+}]);
+app.config(function ($routeProvider) {
   $routeProvider
   .when('/', {
     templateUrl: 'views/cards.html',
