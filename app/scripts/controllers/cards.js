@@ -38,8 +38,12 @@ app.controller('CardsCtrl', function ($scope, $modal, localStorageService) {
   };
 
   $scope.usePredefined = function () {
-    var base = window.location.protocol + '//' + window.location.host +
-      window.location.pathname;
+    var path = window.location.pathname.split('/');
+    if (path[path.length - 1].match(/\.html$/)) {
+      path.pop();
+    }
+    var base = window.location.protocol + '//' + window.location.host + path.join('/');
+
     $scope.cards = [
       [{
         text: 'Feles',
